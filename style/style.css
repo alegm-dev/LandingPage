@@ -1,0 +1,338 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500&display=swap");
+
+/*----- Paleta de colores de burgerking -----*/
+
+:root {
+    --verde: #00892f;
+    --rojo: #fa1e00;
+    --naranja: #ff8823;
+    --marron: #5c1e0b;
+    --amarillo: #ffac00;
+    --blanco: #f8ecdc;
+}
+
+
+/*----- Paleta de colores de burgerking -----*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    height: 100%;
+    width: 100%;
+}
+
+section {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 100px;
+    background: var(--blanco);
+}
+
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 40px 100px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo {
+    position: relative;
+    max-width: 100px;
+}
+
+header .menu {
+    display: flex;
+    position: relative;
+    transition: 2s;
+}
+
+header .menu li {
+    list-style: none;
+}
+
+header .menu li a {
+    display: inline-block;
+    text-decoration: none;
+    margin-left: 40px;
+    font-weight: bold;
+    color: var(--marron);
+}
+
+header .menu li a:hover {
+    transform: scale(1.2);
+    color: var(--rojo);
+}
+
+header .burger {
+    display: none;
+}
+
+.content {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.content .content-info {
+    position: relative;
+    max-width: 60%;
+}
+
+.content .content-info h2 {
+    font-size: 4rem;
+    font-weight: 500;
+    color: var(--marron);
+    line-height: 4rem;
+}
+
+.content .content-info h2 span {
+    font-size: 4.2rem;
+    font-weight: 900;
+    color: var(--naranja);
+}
+
+.content .content-info p {
+    color: var(--marron);
+    margin-top: 8px;
+}
+
+.content .content-info a {
+    display: inline-block;
+    padding: 8px 20px;
+    background: var(--rojo);
+    color: #fff;
+    border-radius: 10px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-decoration: none;
+}
+
+.content .img-box {
+    width: 40%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    z-index: 1;
+}
+
+.content .img-box img {
+    max-width: 450px;
+}
+
+.bottom-box {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+}
+
+.bottom-box li {
+    list-style: none;
+    display: inline-block;
+    margin: 0 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.bottom-box li:hover {
+    animation: shakeY 2.5s infinite;
+}
+
+.bottom-box li img {
+    max-width: 80px;
+}
+
+.box-social {
+    position: absolute;
+    top: 45%;
+    right: 60px;
+    transform: translateY(-50px);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.box-social li {
+    list-style: none;
+}
+
+.box-social li a {
+    display: inline-block;
+    margin: 14px 0;
+}
+
+.box-social li a i {
+    font-size: 24px;
+    color: var(--marron);
+}
+
+footer {
+    width: 100%;
+    background: #333;
+    justify-content: center !important;
+}
+
+footer i {
+    color: rgba(2551, 255, 2550, 0.5);
+    transition: all 0.5s;
+}
+
+footer i:hover {
+    color: #fff;
+}
+
+@media (max-width: 1180px) {
+    section {
+        padding: 40px 40px 150px;
+        width: 100%;
+    }
+    header {
+        padding: 40px;
+    }
+    header .logo {
+        width: 60px;
+    }
+    .content {
+        flex-direction: column;
+        margin-top: 150px;
+    }
+    .content .content-info {
+        max-width: 100%;
+    }
+    .content .content-info h2 {
+        font-size: 3rem;
+        line-height: 3rem;
+        white-space: normal;
+    }
+    .content .content-info h2 span {
+        font-size: 3rem;
+    }
+    .content .content-info p {
+        font-size: 18px;
+    }
+    .content .img-box {
+        max-width: 100%;
+        justify-content: center;
+    }
+    .box-social {
+        top: 50%;
+        right: 20px;
+        padding: 6px;
+    }
+    .box-social li a i {
+        color: var(--marron);
+    }
+}
+
+@media (max-width: 768px) {
+    header .menu {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        background: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        z-index: 100;
+        transition: 0.5s;
+    }
+    header .menu a {
+        margin: 30px 0;
+        opacity: 0;
+        transform: translateX(1000px);
+        font-size: 32px;
+        transition: 0.8s;
+    }
+    header .menu.active a {
+        opacity: 1;
+        transform: translateX(-50px);
+    }
+    header .menu.active {
+        right: 0;
+    }
+    header .burger {
+        display: inline-block;
+        font-size: 30px;
+        color: var(--marron);
+        z-index: 200;
+    }
+    header .burger:active ˜ menu.active {
+        transition: delay 1s;
+    }
+    .content .img-box img {
+        max-width: 360px;
+    }
+    .bottom-box {
+        bottom: 20px;
+    }
+    .bottom-box li img {
+        max-width: 80px;
+    }
+}
+
+@media (max-width: 675px) {
+    section {
+        padding: 20px 20px 100px;
+    }
+    header {
+        padding: 20px;
+    }
+    .bottom-box li img {
+        max-width: 60px;
+    }
+}
+
+@media (max-width: 450px) {
+    header .logo {
+        width: 50px;
+    }
+    .content {
+        margin-top: 100px;
+    }
+    .content .content-info h2 {
+        font-size: 2.7rem;
+        line-height: 2.5rem;
+    }
+    .content .content-info h2 span {
+        font-size: 2.7rem;
+    }
+    .content .content-info p {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 350px) {
+    .content .content-info h2 {
+        font-size: 2.5rem;
+    }
+    .content .content-info h2 span {
+        font-size: 2.2rem;
+    }
+    .content .img-box img {
+        max-width: 300px;
+    }
+    .bottom-box {
+        left: 45%;
+    }
+    .box-social li a i {
+        font-size: 20px;
+    }
+}
